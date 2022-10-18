@@ -11,7 +11,7 @@ using bookstore.Models;
 namespace bookstore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221018033415_AddProduct")]
+    [Migration("20221018042710_AddProduct")]
     partial class AddProduct
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
