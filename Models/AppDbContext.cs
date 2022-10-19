@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using bookstore.Models.Product;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace bookstore.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -17,15 +18,16 @@ namespace bookstore.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // // Bỏ tiền tố AspNet của các bảng: mặc định
-            // foreach (var entityType in modelBuilder.Model.GetEntityTypes())
-            // {
-            //     var tableName = entityType.GetTableName();
-            //     if (tableName.StartsWith("AspNet"))
-            //     {
-            //         entityType.SetTableName(tableName.Substring(6));
-            //     }
-            // }
+
+            // Bỏ tiền tố "AspNet" trong tên các bảng
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes()) //duyệt qua từng bảng
+            {
+                var tableName = entityType.GetTableName();
+                if (tableName.StartsWith("AspNet"))
+                {
+                    entityType.SetTableName(tableName.Substring(6)); //bỏ đi 6 kí tự đầu tiên
+                }
+            }
 
             modelBuilder.Entity<ProductModel>(entity =>
             {
