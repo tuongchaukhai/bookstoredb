@@ -8,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace bookstore.Areas.Admin.Controllers
 {
-    [Route("/database-manage/[action]")]
+    [Area("Admin")]
+    [Route("[area]/database-manage/[action]")]
     public class DbManageController : Controller
     {
         private readonly AppDbContext _dbContext;

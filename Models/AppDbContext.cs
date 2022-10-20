@@ -19,7 +19,7 @@ namespace bookstore.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            // Bỏ tiền tố "AspNet" trong tên các bảng
+            // Bỏ tiền tố "AspNet" trong tên các bảng 
             foreach (var entityType in modelBuilder.Model.GetEntityTypes()) //duyệt qua từng bảng
             {
                 var tableName = entityType.GetTableName();

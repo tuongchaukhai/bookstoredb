@@ -8,22 +8,19 @@ namespace bookstore.Models
 {
     public class AppUser : IdentityUser
     {
-        [Required(ErrorMessage = "Vui lòng nhập Họ Tên")]
         [DataType(DataType.Text)]
         [DisplayName("Họ Tên")]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
         [DataType(DataType.PhoneNumber)]
         [DisplayName("Số điện thoại")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
         [DisplayName("Địa chỉ")]
         [StringLength(400)]
-        public string Address { get; set; }
+        public string? Address { get; set; }
     }
 }
