@@ -42,7 +42,7 @@
 
 @if (can_connect)
 {
-    @* <h2>Tables</h2>
+     <h2>Tables</h2>
     await dbContext.Database.OpenConnectionAsync();
     var table = connect.GetSchema("Tables");
     <ul>
@@ -50,7 +50,7 @@
         {
             <li>@row["TABLE_NAME"]</li>
         }
-    </ul> *@
+    </ul> 
 
     <a class="btn btn-danger" asp-action="DeleteDb">Xóa Database: @dbname</a>   
 }
